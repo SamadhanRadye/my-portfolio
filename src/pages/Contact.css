@@ -1,0 +1,36 @@
+/* Removes the boxy borders and uses thin lines for a modern feel */
+.custom-input {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 0;
+  padding: 1rem 0.5rem;
+  font-weight: 300;
+  transition: all 0.3s ease;
+}
+
+/* Focus state: only animate the bottom border color */
+.custom-input:focus {
+  box-shadow: none;
+  border-color: #000;
+  background-color: transparent;
+}
+
+/* Letter spacing for the headers */
+.ls-widest {
+  letter-spacing: 0.15em;
+}
+
+/* Button hover effect */
+.btn-dark {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-dark:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.hover-link:hover {
+  text-decoration: underline !important;
+  color: #007bff !important;
+}

@@ -1,0 +1,97 @@
+/* Projects.css */
+
+.projects-section {
+  background-color: #ffffff;
+  padding: 80px 0;
+}
+
+/* Section Title */
+.projects-title {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  margin-bottom: 3rem;
+}
+
+/* Card Styling */
+.project-card {
+  border: 1px solid #eeeeee; /* Very subtle border like the Wix boxes */
+  border-radius: 0; /* Keep it sharp and professional */
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  background: #fff;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+  border-color: #000;
+}
+
+/* Image Container */
+.project-img-container {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.project-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Card Text */
+.project-info {
+  padding: 1.5rem;
+}
+
+.project-category {
+  font-size: 0.7rem;
+  text-uppercase;
+  letter-spacing: 2px;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.project-name {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Modal / Overlay Customization */
+.modal-content {
+  border-radius: 0;
+  border: none;
+}
+
+.modal-header {
+  border-bottom: 1px solid #eee;
+  padding: 2rem;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.project-detail-img {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.detail-label {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
