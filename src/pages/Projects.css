@@ -55,7 +55,7 @@
 
 .project-category {
   font-size: 0.7rem;
-  text-uppercase;
+  text-transform: uppercase;
   letter-spacing: 2px;
   color: #888;
   margin-bottom: 0.5rem;
