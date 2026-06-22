@@ -408,7 +408,7 @@ function Home() {
                 { icon: icons.email, href: "#" },
                 { icon: icons.x, href: "#" },
                 { icon: icons.dribbble, href: "#" },
-                { icon: icons.instagram, href: "https://www.instagram.com/?hl=en" },
+                { icon: icons.instagram, href: "https://www.instagram.com/samadhan.radye/?hl=en" },
                 { icon: icons.behance, href: "#" },
                 { icon: icons.linkedin, href: "https://www.linkedin.com/in/samadhan-radye-824a21375/" },
               ].map((s, i) => (
