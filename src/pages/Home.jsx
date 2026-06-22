@@ -401,14 +401,14 @@ function Home() {
           {/* Col 3 — Photo + Socials */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
             <div className="about-grid__photo">
-              <div className="photo-placeholder"><img src="https://media.licdn.com/dms/image/v2/D4D03AQExPIBBnRpcUQ/profile-displayphoto-crop_800_800/B4DZvHC.UmKQAI-/0/1768571006576?e=1776902400&v=beta&t=vJlSOsoHJGO5FVjTHKBKsFIobV8nYnzlYI2fxOAZv64" alt="profile pic" /></div>
+              <div className="photo-placeholder"><img src="https://media.licdn.com/dms/image/v2/D4D03AQExPIBBnRpcUQ/profile-displayphoto-crop_800_800/B4DZvHC.UmKQAI-/0/1768571006576?e=1783555200&v=beta&t=sKNPSZXHp6fHhSfRh6nxfA7DW93TC0O6Lr1FOa1opck" alt="profile pic" /></div>
             </div>
             <div className="socials-grid">
               {[
                 { icon: icons.email, href: "#" },
                 { icon: icons.x, href: "#" },
                 { icon: icons.dribbble, href: "#" },
-                { icon: icons.instagram, href: "#" },
+                { icon: icons.instagram, href: "https://www.instagram.com/?hl=en" },
                 { icon: icons.behance, href: "#" },
                 { icon: icons.linkedin, href: "https://www.linkedin.com/in/samadhan-radye-824a21375/" },
               ].map((s, i) => (
