@@ -1,76 +1,87 @@
-import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Projects.css';
 
-import Project1 from "../projects/Project1";
-import Project2 from "../projects/Project2";
-import Project3 from "../projects/Project3";
+const projectData = [
+  {
+    id: 1,
+    title: 'Product Recommendation Engine',
+    category: 'Machine learning · Personalization',
+    shortDesc: 'A recommendation system that uses product interactions to suggest relevant items.',
+    technologies: ['React', 'Python', 'Scikit-learn'],
+    image: '/images/blog-platform.jpg',
+    href: '/projects/project1',
+  },
+  {
+    id: 2,
+    title: 'Customer Segmentation System',
+    category: 'Data science · Customer analytics',
+    shortDesc: 'A clustering workflow that groups customers by purchasing behavior for targeted analysis.',
+    technologies: ['Python', 'Pandas', 'KMeans', 'Matplotlib'],
+    href: '/projects/project2',
+  },
+];
 
-const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+const Projects = () => (
+  <main className="projects-page">
+    <section className="projects-intro" aria-labelledby="projects-title">
+      <div className="projects-intro__eyebrow">
+        <span>Selected work</span>
+        <span className="projects-intro__rule" aria-hidden="true" />
+        <span>01 — 02</span>
+      </div>
 
-  const projectData = [
-    {
-      id: 1,
-      title: "Blogging Platform",
-      category: "react js and java (spring boot)",
-      shortDesc: "A minimalist banking interface.",
-      image: "/images/blog-platform.jpg",
-    },
-    {
-      id: 2,
-      title: "Modern Portfolio",
-      category: "WEB DEVELOPMENT",
-      shortDesc: "Pixel perfect minimalist design.",
-      image:
-        "https://futurevisioncomputers.com/wp-content/uploads/2024/03/web_development_Z62jy4k-1024x576.jpg",
-    }
-  ];
+      <div className="projects-intro__heading">
+        <h1 id="projects-title">Projects<span>.</span></h1>
+        <p>A selection of experiments and tools exploring thoughtful interfaces, useful data, and machine learning.</p>
+      </div>
 
-  // 👇 render selected project component
-  if (selectedProject === 1) return <Project1 />;
-  if (selectedProject === 2) return <Project2 />;
-  if (selectedProject === 3) return <Project3 />;
+      <p className="projects-intro__count">{String(projectData.length).padStart(2, '0')} projects</p>
+    </section>
 
-  return (
-    <section className="projects-section">
-      <div className="container">
-        <h2 className="projects-title text-center text-md-start">
-          Featured Work
-        </h2>
-
-        <div className="row g-4">
-          {projectData.map((project) => (
-            <div className="col-md-6 col-lg-4" key={project.id}>
-              <div
-                className="project-card"
-                role="button"
-                tabIndex={0}
-                onClick={() => setSelectedProject(project.id)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setSelectedProject(project.id);
-                  }
-                }}
-              >
-                <div className="project-img-container">
-                  <img src={project.image} alt={project.title} />
+    <section className="projects-grid" aria-label="Selected projects">
+      {projectData.map((project) => (
+        <article className="project-card" key={project.id}>
+          <Link className="project-card__link" to={project.href} aria-label={`View ${project.title}`}>
+            <div className={`project-card__visual project-card__visual--${project.id}`}>
+              {project.image ? (
+                <img src={project.image} alt="Abstract product interface illustration" />
+              ) : (
+                <div className="segment-preview" aria-hidden="true">
+                  <div className="segment-preview__topline"><span>Customer groups</span><span>Segmentation</span></div>
+                  <div className="segment-preview__chart">
+                    <span style={{ '--bar-height': '44%' }} />
+                    <span style={{ '--bar-height': '72%' }} />
+                    <span style={{ '--bar-height': '56%' }} />
+                    <span style={{ '--bar-height': '88%' }} />
+                    <span style={{ '--bar-height': '63%' }} />
+                    <span style={{ '--bar-height': '100%' }} />
+                    <span style={{ '--bar-height': '77%' }} />
+                  </div>
+                  <div className="segment-preview__legend"><i /><span>Purchase frequency</span></div>
                 </div>
+              )}
+              <span className="project-card__number">0{project.id}</span>
+              <span className="project-card__arrow" aria-hidden="true">↗</span>
+            </div>
 
-                <div className="project-info">
-                  <span className="project-category">
-                    {project.category}
-                  </span>
-                  <h3 className="project-name">{project.title}</h3>
-                  <p className="text-muted small">{project.shortDesc}</p>
-                </div>
+            <div className="project-card__body">
+              <div className="project-card__meta">
+                <span>{project.category}</span>
+              </div>
+              <h2>{project.title}</h2>
+              <p>{project.shortDesc}</p>
+              <div className="project-card__footer">
+                <ul className="project-card__stack" aria-label="Technologies">
+                  {project.technologies.map((technology) => <li key={technology}>{technology}</li>)}
+                </ul>
+                <span className="project-card__view">View project <span aria-hidden="true">→</span></span>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
+          </Link>
+        </article>
+      ))}
     </section>
-  );
-};
+  </main>
+);
 
 export default Projects;
