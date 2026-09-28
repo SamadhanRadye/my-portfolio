@@ -9,7 +9,7 @@ const projectData = [
     shortDesc: 'A recommendation system that uses product interactions to suggest relevant items.',
     technologies: ['React', 'Python', 'Scikit-learn'],
     image: '/images/blog-platform.jpg',
-    href: '/projects/project1',
+    href: 'https://github.com/SamadhanRadye/product-recommendation-engine',
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const projectData = [
     category: 'Data science · Customer analytics',
     shortDesc: 'A clustering workflow that groups customers by purchasing behavior for targeted analysis.',
     technologies: ['Python', 'Pandas', 'KMeans', 'Matplotlib'],
-    href: '/projects/project2',
+    href: 'https://github.com/SamadhanRadye/customer-segmentation-rfm',
   },
 ];
 
