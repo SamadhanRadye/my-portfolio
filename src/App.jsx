@@ -1,16 +1,35 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
-import ProjectDetail from './pages/ProjectDetail'; // ✅ NEW ADD
+import { Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
+import { Suspense, lazy, useEffect } from 'react';
 import './App.css';
 
-import Project1 from './pages/Project1'; // NEW
-import Project2 from './pages/Project2'; // NEW
+const Home = lazy(() => import('./pages/Home'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Project1 = lazy(() => import('./projects/Project1'));
+const Project2 = lazy(() => import('./projects/Project2'));
+const Project3 = lazy(() => import('./projects/Project3'));
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+const pageLoaderStyle = {
+  minHeight: '60vh',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: '#888',
+  fontFamily: "'DM Sans', sans-serif",
+};
 
 function App() {
   return (
     <div>
+      <ScrollToTop />
       <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div className="container">
           <Link className="navbar-brand" to="/">Samadhan Radye</Link>
@@ -42,16 +61,20 @@ function App() {
         </div>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
+      <Suspense fallback={<div style={pageLoaderStyle}>Loading…</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
 
-        {/* ✅ PROJECT ROUTES */}
-        <Route path="/projects/project1" element={<Project1 />} />
-        <Route path="/projects/project2" element={<Project2 />} />
+          {/* ✅ PROJECT ROUTES */}
+          <Route path="/projects/project1" element={<Project1 />} />
+          <Route path="/projects/project2" element={<Project2 />} />
+          <Route path="/projects/project3" element={<Project3 />} />
 
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

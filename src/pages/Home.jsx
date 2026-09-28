@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const STYLES = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
@@ -192,7 +194,7 @@ const STYLES = `
   .social-cell:hover { background: #eceae5; }
   .social-cell:nth-child(3n) { border-right: none; }
   .social-cell:nth-child(4), .social-cell:nth-child(5), .social-cell:nth-child(6) { border-bottom: none; }
-  .social-cell svg { width: 28px; height: 120px; }
+  .social-cell svg { width: 28px; height: 28px; }
 
   /* ── CTA BANNER ── */
   .cta-banner {
@@ -342,9 +344,10 @@ function Home() {
             {/* Education */}
             <div className="about-card__hdr">About Me</div>
             <div className="about-card__bio">
-              <p>              I'm a passionate UX designer dedicated to crafting intuitive and delightful digital experiences. With a background in human-computer interaction and a love for problem-solving, I specialize in turning complex challenges into elegant solutions that resonate with users. My design philosophy centers around empathy, simplicity, and innovation, ensuring that every project I undertake not only meets user needs but also brings joy and ease to their interactions.</p>
-              <p>
-                Over the years, I have collaborated with cross-functional teams to create products that are both visually engaging and functionally seamless. From conducting in-depth user research to developing wireframes, interactive prototypes, and final designs, I am deeply involved in every stage of the design process. I thrive on analyzing user behavior, identifying pain points, and transforming insights into meaningful design decisions that drive measurable impact.</p>
+              <p> I’m a Computer Engineering student passionate about Artificial Intelligence, Machine Learning, Data Science, and Software Development. I enjoy turning ideas into practical solutions by combining programming, data, and intelligent systems.</p>
+              <p>I work with technologies such as Python, Java, C/C++, SQL, React, and FastAPI, and I’m continuously strengthening my foundations in Machine Learning, Data Structures & Algorithms, backend development, and cybersecurity.</p>
+              <p>I like building projects that solve real-world problems—from AI-powered recommendation systems and data-driven applications to digital twin and predictive analytics solutions. Beyond development, I’m focused on understanding how systems work under the hood and improving my problem-solving skills.</p>
+              <p>Currently, I’m focused on building a strong foundation in AI/ML and Data Science, while preparing myself for opportunities in software engineering, machine learning, and data-driven roles.</p>
             </div>
           </div>
 
@@ -354,12 +357,12 @@ function Home() {
             <div className="about-card" style={{ gap: 0, padding: 0, overflow: "hidden" }}>
               <div className="featured-card__hdr">Education</div>
               <div style={{ padding: "1rem 1.5rem", borderBottom: "1px solid #e2e0db" }}>
-                <div style={{ fontWeight: 500, fontSize: ".92rem", marginBottom: ".2rem" }}>Master of Science, Human-Computer Interaction</div>
-                <div style={{ fontSize: ".82rem", color: "#666" }}>NorthWest point Institute of Technology, 2019</div>
+                <div style={{ fontWeight: 500, fontSize: ".92rem", marginBottom: ".2rem" }}>BE/B.Tech, Computer Engineering (Honours in Cyber Security)</div>
+                <div style={{ fontSize: ".82rem", color: "#666" }}>Vidyavardhini's College of Engineering and Technology, 2028</div>
               </div>
               <div style={{ padding: "1rem 1.5rem" }}>
-                <div style={{ fontWeight: 500, fontSize: ".92rem", marginBottom: ".2rem" }}>Bachelor of Arts, Behavioral Science</div>
-                <div style={{ fontSize: ".82rem", color: "#666" }}>Westmontaine University, 2017</div>
+                <div style={{ fontWeight: 500, fontSize: ".92rem", marginBottom: ".2rem" }}>Science (PCM), Computer Science</div>
+                <div style={{ fontSize: ".82rem", color: "#666" }}>Ismail Yusuf college of ART, SCIENCE and COMMERCE, 2024</div>
               </div>
             </div>
 
@@ -370,16 +373,16 @@ function Home() {
               </div>
               {[
                 {
-                  title: "Research & Strategy",
-                  list: "User Research | Competitive Analysis | Information Architecture | User Journeys | Usability Testing | A/B Testing | Analytics",
+                  title: "WEB DEVELOPMENT",
+                  list: "HTML| CSS | JavaScript | React | SQL | FastAPI | Python | RESTful APIs ",
                 },
                 {
-                  title: "Design & Prototyping",
-                  list: "Wireframing | UI Design | Interaction Design | Prototyping | Design Systems | Responsive Design | Accessibility (WCAG)",
+                  title: "AIML & DATA SCIENCE",
+                  list: "Machine Learning | Python | Data Analysis | Pandas | NumPy | Seaborn | Scikit-learn | Deep Learning | ",
                 },
                 {
                   title: "Tools",
-                  list: "Figma | Sketch | Adobe XD | Principle | Framer | InVision | Miro | Hotjar | GA | Maze | Optimal Workshop",
+                  list: "Figma | VS Code | Jupyter Lab | Colab | Liber Office | Postman | Git | GitHub ",
                 },
                 {
                   title: "AI & Emerging Tech",
@@ -401,11 +404,11 @@ function Home() {
           {/* Col 3 — Photo + Socials */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
             <div className="about-grid__photo">
-              <div className="photo-placeholder"><img src="https://media.licdn.com/dms/image/v2/D4D03AQExPIBBnRpcUQ/profile-displayphoto-crop_800_800/B4DZvHC.UmKQAI-/0/1768571006576?e=1783555200&v=beta&t=sKNPSZXHp6fHhSfRh6nxfA7DW93TC0O6Lr1FOa1opck" alt="profile pic" /></div>
+              <div className="photo-placeholder"><img src="/my_image.jpeg" alt="profile pic" /></div>
             </div>
             <div className="socials-grid">
               {[
-                { icon: icons.email, href: "#" },
+                { icon: icons.email, href: "/contact" },
                 { icon: icons.x, href: "#" },
                 { icon: icons.dribbble, href: "#" },
                 { icon: icons.instagram, href: "https://www.instagram.com/samadhan.radye/?hl=en" },
@@ -432,10 +435,22 @@ function Home() {
             <div className="footer-col__label">Quick Links</div>
             <div style={{ marginTop: "3rem" }}>
               {["Portfolio", "About", "Services", "Contact"].map((l) => (
-                <a key={l} href="#" className="footer-link">
+                <Link
+                  key={l}
+                  to={
+                    l === "Portfolio"
+                      ? "/projects"
+                      : l === "About"
+                        ? "/"
+                        : l === "Services"
+                          ? "/projects"
+                          : "/contact"
+                  }
+                  className="footer-link"
+                >
                   <span>{l}</span>
                   <span className="footer-link__arrow"><ArrowIcon /></span>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -444,9 +459,15 @@ function Home() {
           <div className="footer-col">
             <div className="footer-col__label">Contact</div>
             <div style={{ marginTop: "1.25rem" }}>
-              {["Linkedin", "Dribbble", "Behance", "IG", "Email"].map((l) => (
-                <a key={l} href="#" className="footer-link">
-                  <span>{l}</span>
+              {[
+                { label: "Linkedin", href: "https://www.linkedin.com/in/samadhan-radye-824a21375/" },
+                { label: "Dribbble", href: "#" },
+                { label: "Behance", href: "#" },
+                { label: "IG", href: "https://www.instagram.com/samadhan.radye/?hl=en" },
+                { label: "Email", href: "/contact" },
+              ].map((l) => (
+                <a key={l.label} href={l.href} className="footer-link">
+                  <span>{l.label}</span>
                   <span className="footer-link__arrow"><ArrowIcon /></span>
                 </a>
               ))}
@@ -462,7 +483,7 @@ function Home() {
               <a href="#">Refund Policy</a>
               <a href="#">Accessibility Statement</a>
             </div>
-            <p className="footer-copy">© 2035 by Samadhan. All rights reserved.</p>
+            <p className="footer-copy">© {new Date().getFullYear()} by Samadhan. All rights reserved.</p>
           </div>
 
         </div>

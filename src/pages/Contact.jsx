@@ -96,8 +96,22 @@ const Contact = () => {
                 <div>
                   <h6 className="text-uppercase fw-bold mb-2" style={{ fontSize: "0.8rem" }}>Social</h6>
                   <div className="d-flex gap-3">
-                    <a href="#" className="text-decoration-none text-dark small">LinkedIn</a>
-                    <a href="#" className="text-decoration-none text-dark small">Twitter</a>
+                    <a
+                      href="https://www.linkedin.com/in/samadhan-radye-824a21375/"
+                      className="text-decoration-none text-dark small"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      LinkedIn
+                    </a>
+                    <a
+                      href="https://www.instagram.com/samadhan.radye/?hl=en"
+                      className="text-decoration-none text-dark small"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
                   </div>
                 </div>
               </div>

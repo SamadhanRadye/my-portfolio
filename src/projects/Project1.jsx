@@ -1,6 +1,12 @@
+import { Link } from 'react-router-dom';
+
 function Project1() {
   return (
     <div className="container mt-4">
+      <p>
+        <Link to="/projects">&larr; Back to Projects</Link>
+      </p>
+
       <h1>Product Recommendation Engine</h1>
 
       <p>
