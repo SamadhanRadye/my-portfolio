@@ -11,6 +11,7 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null); // { type: "success" | "error", text: "" }
 
   // Handle input change
   const handleChange = (e) => {
@@ -26,6 +27,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setStatus(null);
 
     try {
       const { error } = await supabase.from("contacts").insert([
@@ -42,7 +44,7 @@ const Contact = () => {
         throw error;
       }
 
-      alert("✅ Message sent successfully!");
+      setStatus({ type: "success", text: "✅ Message sent successfully!" });
 
       // Reset form
       setFormData({
@@ -53,8 +55,11 @@ const Contact = () => {
         message: "",
       });
     } catch (err) {
-      console.error(err);
-      alert("❌ Failed to send message");
+      console.error("Contact form error:", err);
+      setStatus({
+        type: "error",
+        text: `❌ Failed to send message: ${err.message || "Unknown error"}`,
+      });
     }
 
     setLoading(false);
@@ -181,6 +186,19 @@ const Contact = () => {
                     </div>
 
                     <div className="col-12 text-end mt-3">
+                      {status && (
+                        <div
+                          className={`alert py-2 ${
+                            status.type === "success"
+                              ? "alert-success"
+                              : "alert-danger"
+                          }`}
+                          role="alert"
+                        >
+                          {status.text}
+                        </div>
+                      )}
+
                       <button
                         type="submit"
                         className="btn btn-dark px-5 py-2"
