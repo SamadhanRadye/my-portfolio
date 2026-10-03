@@ -89,12 +89,12 @@ const Contact = () => {
               <div className="col-md-4">
                 <div className="mb-4">
                   <h6 className="text-uppercase fw-bold mb-2" style={{ fontSize: "0.8rem" }}>Email</h6>
-                  <p className="text-muted">hello@yourname.com</p>
+                  <p className="text-muted">samadhanradye@gmail.com</p>
                 </div>
 
                 <div className="mb-4">
                   <h6 className="text-uppercase fw-bold mb-2" style={{ fontSize: "0.8rem" }}>Phone</h6>
-                  <p className="text-muted">+91 9876543210</p>
+                  <p className="text-muted">+91 927XXXXXXX</p>
                 </div>
 
                 <div className="mb-4">

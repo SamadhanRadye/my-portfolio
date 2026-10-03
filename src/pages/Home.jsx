@@ -333,7 +333,7 @@ function Home() {
 
         {/* ── ABOUT HEADLINE BANNER ── */}
         <div className="about-banner">
-          <h1>Creating Interfaces That Understand People</h1>
+          <h1>Creating Projects That Make a Difference</h1>
         </div>
 
         {/* ── 3-COL ABOUT GRID ── */}
@@ -409,7 +409,7 @@ function Home() {
             <div className="socials-grid">
               {[
                 { icon: icons.email, href: "/contact" },
-                { icon: icons.x, href: "#" },
+                { icon: icons.x, href: "https://x.com/SamadhanRadye" },
                 { icon: icons.dribbble, href: "#" },
                 { icon: icons.instagram, href: "https://www.instagram.com/samadhan.radye/?hl=en" },
                 { icon: icons.behance, href: "#" },
